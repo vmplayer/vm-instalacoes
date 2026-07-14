@@ -12,39 +12,73 @@
     --text: #000;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 header {
     background-color: var(--blue);
     height: 70px;
-    width: 100vw;
+    width: 100%;
     color: var(--white-text);
     display: flex;
+
+    cursor: default;
+    user-select: none;         /* Padrão */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
 }
 
 header > div.header-title > h1 > span > img {
     height: 50px;
     width: 50px;
-
-    transform: translateY(11,5%);
-    display: inline-block;
-    vertical-align: center;
+    
+    vertical-align: middle;
 }
 
 header > div.header-title > h1 {
     height: 50px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+div.main-container {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
 }
 
 nav {
-    max-width: 250px;
-    max-height: 250px;
+    width: 250px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 10px 10px 10px 10px;
+    margin-top: 10px;
+    flex-shrink: 0;
 }
 
 nav > div.item {
     padding: 10px 10px 10px 10px;
-    border-radius: 20px;
+    border-radius: 19px;
+    
+    cursor: pointer;
+    user-select: none;         /* Padrão */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+}
+
+nav > div.item.active {
+    background-color: var(--blue) !important;
+    color: var(--white-text);
+}
+
+nav > div.item.active > span.material-symbols-outlined {
+    color: var(--white-text);
 }
 
 nav > div.item > span.material-symbols-outlined {
@@ -60,4 +94,81 @@ nav > div.item:hover {
 
 .selected-menu {
     background-color: var(--blue);
+}
+
+main {
+    background-color: gray;
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div.contact {
+    background-color: #fff;
+    width: 90%;
+    border-radius: 20px;
+
+    display: flex;
+}
+
+div.contact > div#img {
+    background-color: #fff1a2;
+    width: 250px;
+    height: 250px;
+
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+div.contact > div.contact-body {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+}
+
+/* div.contact-body > div#contact-info {
+} */
+
+div.contact-body > div#contact-info > h1 {
+    font-size: xx-large;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+div.contact-body > div#contact-metd {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    justify-content: end;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+div#contact-metd > span#whatsapp-btn {
+    background-color: #25d366;
+    padding: 10px;
+    width: 60%;
+    border-radius: 20px;
+}
+
+div#contact-metd > span#contact-btn {
+    background-color: #3c8ffc;
+    padding: 10px;
+    width: 60%;
+    border-radius: 20px;
+}
+
+footer {
+    background-color: #7ca5db;
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }

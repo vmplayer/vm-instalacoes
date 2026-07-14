@@ -10,23 +10,45 @@
 </head>
 <body>
     <header>
-        <div class="header-title">
+        <div class="header-title" onclick="window.location.href = '/'">
             <h1><span><img src="src/assets/vm-instalacoes.png" alt="VM Instalações - logo"></span>VM Instalações</h1>
         </div>
         <div class="menu">
             
         </div>
     </header>
-    <nav>
-        <div class="item"><span class="material-symbols-outlined">home</span> Início</div>
-        <div class="item"><span class="material-symbols-outlined">build</span> Soluções</div>
-        <div class="item"><span class="material-symbols-outlined">person</span> Conheça o técnico</div>
-    </nav>
-    <main>
-        <div class="page">
-
-        </div>
-    </main>
+    <div class="main-container">
+        <nav>
+            <div class="item active" onclick="window.location.reload()"><span class="material-symbols-outlined" id="home-button">home</span> Início</div>
+            <div class="item" onclick="window.location.href = './src/pages/solucoes.html'"><span class="material-symbols-outlined" id="solution-button">build</span> Soluções</div>
+            <div class="item" onclick="window.location.href = './src/pages/conheca-o-tecnico.html'"><span class="material-symbols-outlined" id="person-button">person</span> Conheça o técnico</div>
+        </nav>
+        <main>
+            <div class="intro">
+                <h1>Precisa de ajuda?</h1>
+                <p>Marque um orçamento!</p>
+            </div>
+            <div class="contact">
+                <div id="img">
+                    
+                </div>
+                <div class="contact-body">
+                    <div id="contact-info">
+                        <h1>Título</h1>
+                        <p>Descrição...</p>
+                    </div>
+                    <div id="contact-metd">
+                        <span id="whatsapp-btn">WhatsApp</span>
+                        <span id="contact-btn">Todos os contatos</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <p><strong>© 2026 · VM Instalações</strong></p>
+        <p>23.150.859/0001-82 · São Leopoldo e Região</p>
+    </footer>
 
     <!-- Scripts -->
     <script src="src/scripts/script.js"></script>
