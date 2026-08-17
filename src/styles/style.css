@@ -8,6 +8,7 @@
 
 :root {
     --blue: #1a73e8;
+    --dark-blue: #1263cc;;
     --white-text: #fff;
     --text: #000;
 }
@@ -77,6 +78,12 @@ nav > div.item.active {
     color: var(--white-text);
 }
 
+nav > div.item.active:hover {
+    background-color: var(--dark-blue) !important;
+    color: var(--white-text);
+    transition: .2s;
+}
+
 nav > div.item.active > span.material-symbols-outlined {
     color: var(--white-text);
 }
@@ -102,22 +109,30 @@ main {
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 40px;
+}
+
+div.intro {
+    width: 90%;
+    text-align: flex-start;
 }
 
 div.contact {
     background-color: #fff;
-    width: 90%;
+    width: 100%;
+    height: 350px;
     border-radius: 20px;
 
     display: flex;
+    flex-direction: row;
 }
 
 div.contact > div#img {
     background-color: #fff1a2;
-    width: 250px;
-    height: 250px;
+    width: 350px;
+    height: 350px;
 
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -126,7 +141,8 @@ div.contact > div#img {
 div.contact > div.contact-body {
     display: flex;
     height: 100%;
-    flex-direction: column;
+    width: 100%;
+    flex-direction: row;
     gap: 10px;
     margin: 20px;
 }
@@ -142,31 +158,68 @@ div.contact-body > div#contact-info > h1 {
 
 div.contact-body > div#contact-metd {
     display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     gap: 15px;
     margin-top: 15px;
-    justify-content: end;
+    padding: 20px;
+
+    background-color: lightgray;
+    border-radius: 20px;
+    width: 400px;
+    height: 250px;
+}
+
+div#contact-metd > div#contact-metd-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 15px;
+
+    width: 100%;
+    height: 150px;
+
+    background-color: #fff;
+    border-radius: 20px;
+
+    text-align: center;
+    font-weight: normal;
+}
+
+div#contact-metd > div#contact-metd-box > span#whatsapp-btn {
+    background-color: #25d366;
+    padding: 10px;
+    width: 90%;
+    border-radius: 20px;
+
     cursor: pointer;
     user-select: none;
 }
 
-div#contact-metd > span#whatsapp-btn {
-    background-color: #25d366;
-    padding: 10px;
-    width: 60%;
-    border-radius: 20px;
+div#contact-metd > div#contact-metd-box > span#whatsapp-btn:hover {
+    background-color: #1bb955;
+    transition: .1s;
 }
 
-div#contact-metd > span#contact-btn {
+div#contact-metd > div#contact-metd-box > span#contact-btn {
     background-color: #3c8ffc;
     padding: 10px;
-    width: 60%;
+    width: 90%;
     border-radius: 20px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+div#contact-metd > div#contact-metd-box > span#contact-btn:hover {
+    background-color: #307adb;
+    transition: .1s;
 }
 
 footer {
     background-color: #7ca5db;
-    margin-top: 20px;
     padding: 20px;
     text-align: center;
     border-top-left-radius: 5px;
