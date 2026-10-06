@@ -81,7 +81,6 @@ nav > div.item.active {
 nav > div.item.active:hover {
     background-color: var(--dark-blue) !important;
     color: var(--white-text);
-    transition: .2s;
 }
 
 nav > div.item.active > span.material-symbols-outlined {
@@ -96,7 +95,6 @@ nav > div.item > span.material-symbols-outlined {
 
 nav > div.item:hover {
     background-color: rgb(203, 229, 238);
-    transition: .3s;
 }
 
 .selected-menu {
@@ -104,7 +102,7 @@ nav > div.item:hover {
 }
 
 main {
-    background-color: gray;
+    background-color: #fff;
     flex-grow: 1;
 
     display: flex;
@@ -116,13 +114,18 @@ main {
 
 div.intro {
     width: 90%;
-    text-align: flex-start;
+    text-align: left;
+}
+
+div.intro > h1 {
+    margin-bottom: 5px;
 }
 
 div.contact {
-    background-color: #fff;
+    background-color: #c6dcff;
     width: 100%;
     height: 350px;
+    border: 2px solid #aec8f1;
     border-radius: 20px;
 
     display: flex;
@@ -131,7 +134,7 @@ div.contact {
 
 div.contact > div#img {
     background-color: #fff1a2;
-    width: 350px;
+    width: 500px;
     height: 350px;
 
     border-top-left-radius: 20px;
@@ -143,12 +146,10 @@ div.contact > div.contact-body {
     height: 100%;
     width: 100%;
     flex-direction: row;
+    justify-content: space-between;
     gap: 10px;
     margin: 20px;
 }
-
-/* div.contact-body > div#contact-info {
-} */
 
 div.contact-body > div#contact-info > h1 {
     font-size: xx-large;
@@ -159,22 +160,26 @@ div.contact-body > div#contact-info > h1 {
 div.contact-body > div#contact-metd {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: center;
-    gap: 15px;
-    margin-top: 15px;
+    justify-content: space-between;
     padding: 20px;
+    box-sizing: border-box;
 
     background-color: lightgray;
     border-radius: 20px;
     width: 400px;
-    height: 250px;
+    height: 310px;
+}
+
+div#contact-metd > h1 {
+    justify-self: flex-start;
 }
 
 div#contact-metd > div#contact-metd-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    justify-self: flex-end;
     align-items: center;
     gap: 15px;
 
@@ -186,6 +191,15 @@ div#contact-metd > div#contact-metd-box {
 
     text-align: center;
     font-weight: normal;
+}
+div#contact-metd > div#contact-metd-box > span#pre-atend-btn {
+    font-weight: 500;
+}
+
+div#contact-metd > div#contact-metd-box > span#pre-atend-btn:hover {
+    cursor: pointer;
+    color: #1263cc;
+    text-decoration: underline;
 }
 
 div#contact-metd > div#contact-metd-box > span#whatsapp-btn {
