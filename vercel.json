@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/conheca-o-tecnico",
+      "destination": "/src/pages/conheca-o-tecnico.html"
+    },
+    {
+        "source": "/solucoes",
+        "destination": "/src/pages/solucoes.html"
+    }
+  ]
+}

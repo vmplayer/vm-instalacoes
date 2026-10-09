@@ -1,16 +1,19 @@
-import contatos from './contatos.json' with { type: 'json' }
+import contatos from './contatos.json' with { type: 'json' };
 
-const whatsappBtn = document.getElementById('whatsapp-btn')
-let msg = "Olá!"
+const whatsappBtn = document.getElementById('whatsapp-btn');
+const todosContatosBtn = document.getElementById('contact-btn');
+let msg = "Olá!";
 
 whatsappBtn.addEventListener('click', () => {
-    window.open(`https://wa.me/${contatos.numero}?text=${msg}`, '_blank')
-})
+    window.open(`https://wa.me/${contatos.numero}?text=${msg}`, '_blank');
+});
 
 // Sistema para dizer a página do site
 
-const index = window.url
+// const index = window.url();
 
-function guia() {
+// function guia() {
 
-}
+// }
+
+// PARA TRANSFORMAR A MENSAGEM EM LINK, O COMANDO É EncodeURIComponent() ou algo assim.
