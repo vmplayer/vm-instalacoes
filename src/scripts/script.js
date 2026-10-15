@@ -1,6 +1,6 @@
 import contatos from './contatos.json' with { type: 'json' };
 
-const whatsappBtn = document.getElementById('whatsapp-btn');
+const whatsappBtn = document.getElementById('whatsapp-btn') && document.getElementById('cot-h-btnWPP') && document.getElementById('whatsapp-btn-sl');
 const todosContatosBtn = document.getElementById('contact-btn');
 let msg = "Olá!";
 
