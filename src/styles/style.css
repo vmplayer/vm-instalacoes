@@ -619,7 +619,9 @@ div.showcase-header > div.img-sl > div#fullscr-solucoes {
 }
 
 div.showcase-header > div.img-sl > div#fullscr-solucoes:hover {
+    background-color: #dfdfdf;
     cursor: pointer;
+    transition: .1s;
 }
 
 div.showcase-right {

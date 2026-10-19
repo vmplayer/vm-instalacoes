@@ -1,0 +1,28 @@
+{
+  "name": "vm-instalacoes",
+  "version": "0.3.2",
+  "description": "Um projeto para a empresa VM Instalações. Uma Landing Page para consertos e instalações elétricas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmplayer/vm-instalacoes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/vmplayer/vm-instalacoes/issues"
+  },
+  "homepage": "https://github.com/vmplayer/vm-instalacoes#readme",
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4"
+  }
+}
