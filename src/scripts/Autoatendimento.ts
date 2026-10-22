@@ -1,9 +1,28 @@
 import * as contatos from './contatos.json' with { type: 'json' };
 
-let msg: string = encodeURIComponent("Olá! Vim do site e gostaria de saber mais informações!");
+export class Autoatendimento {
+    private msg: string;
+    private btnID = ['whatsapp-btn', 'cot-h-btnWPP', 'whatsapp-btn-sl'];
+    private allCtt = document.getElementsByClassName('contact-btn');
 
-const whatsAppBtn = document.getElementById('whatsapp-btn') && document.getElementById('cot-h-btnWPP') && document.getElementById('whatsapp-btn-sl') as HTMLDivElement;
+    constructor (msg: string) {
+        this.msg = msg;
+        this.init();
+    }
 
-whatsAppBtn?.addEventListener('click', () => {
-    window.open(`https://wa.me/${contatos.numero}?text=${msg}`, '_blank');
-});
+    private init() {
+        this.btnID.forEach(id => {
+            const btn = document.getElementById(id) as HTMLDivElement | null;
+
+            if (btn) {
+                btn.addEventListener('click', () => {
+                    window.open(`https://wa.me/${contatos.numero}?text=${encodeURIComponent(this.msg)}`, '_blank');
+                });
+            }
+        });
+    }
+
+    altMsg(newMsg: string): void {
+        this.msg = newMsg;
+    }
+}

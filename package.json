@@ -1,6 +1,6 @@
 {
   "name": "vm-instalacoes",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Um projeto para a empresa VM Instalações. Uma Landing Page para consertos e instalações elétricas.",
   "main": "index.js",
   "scripts": {
