@@ -13,7 +13,7 @@ if (gridContainer) {
         </div>
         <div class="card-body">
             <p><strong><span class="material-symbols-outlined escudo">shield</span>
-                <span id="">Com Garantia</span></strong></p>
+                <span>Com Garantia</span></strong></p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, ipsa. Distinctio, officiis. Ea hic magni soluta facilis aspernatur, amet cupiditate quia sed itaque modi obcaecati minus tempora iusto quod voluptates!</p>
         </div>
         <div class="card-btn">Conhecer</div>

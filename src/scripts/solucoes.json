@@ -1,10 +1,16 @@
 [
   {
+    "id": 0,
+    "img": ["", ""],
     "titulo": "Instalação Elétrica Residencial",
-    "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde."
+    "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde.",
+    "garantia": true
   },
   {
+    "id": 1,
+    "img": ["", ""],
     "titulo": "Manutenção Preventiva",
-    "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde."
+    "descricao": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum deserunt ullam a eaque accusamus maxime iusto modi ipsa quaerat optio sunt, dolores, nobis quo laudantium delectus, labore aspernatur aperiam! Unde.",
+    "garantia": true
   }
 ]

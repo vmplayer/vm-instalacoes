@@ -1,6 +1,6 @@
 {
   "name": "vm-instalacoes",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Um projeto para a empresa VM Instalações. Uma Landing Page para consertos e instalações elétricas.",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/vmplayer/vm-instalacoes#readme",
   "devDependencies": {
+    "@types/node": "^26.6.5",
     "typescript": "^7.0.2",
     "vite": "^8.3.4"
   }
