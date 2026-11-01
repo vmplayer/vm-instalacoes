@@ -8,10 +8,13 @@
 
 :root {
     --background-blue: #c6dcff;
+    --button-pink: #F5E1DA;
+    --button-pink-hover: #D6A7B2;
     --button-blue: #3c8ffc;
     --button-blue-hover: #307adb;
     --blue: #1a73e8;
     --dark-blue: #1263cc;;
+    --changer-blue: #3c8ffc;
     --background-border: #aec8f1;
     --footer-bg: #7ca5db;
     --img: #fff1a2;
@@ -28,6 +31,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
+
 
 /* CONFIGURAÇÃO PARA O HEADER */
 
@@ -220,7 +224,7 @@ div.contact-body > div#contact-metd {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 20px;
     box-sizing: border-box;
 
@@ -234,7 +238,8 @@ div.contact-body > div#contact-metd {
 }
 
 div#contact-metd > h1 {
-    justify-self: flex-start;
+    margin: auto 0;
+    transform: translateY(-7px);
 }
 
 div#contact-metd > div#contact-metd-box {
@@ -246,7 +251,7 @@ div#contact-metd > div#contact-metd-box {
     gap: 15px;
 
     width: 100%;
-    height: 150px;
+    height: 200px;
 
     background-color: #fff;
     border-radius: 20px;
@@ -285,8 +290,8 @@ div#contact-metd > div#contact-metd-box > span#whatsapp-btn:hover {
     transition: .1s;
 }
 
-div#contact-metd > div#contact-metd-box > span#contact-btn {
-    background-color: var(--button-blue);
+div#contact-metd > div#contact-metd-box > span#instagram-btn {
+    background-color: var(--button-pink); 
     padding: 10px;
     width: 90%;
     border-radius: 20px;
@@ -295,8 +300,29 @@ div#contact-metd > div#contact-metd-box > span#contact-btn {
     user-select: none;
 }
 
-div#contact-metd > div#contact-metd-box > span#contact-btn:hover {
-    background-color: var(--button-blue-hover);
+div#contact-metd > div#contact-metd-box > span#instagram-btn:hover {
+    background-color: var(--button-pink-hover);
+    transition: .1s;
+}
+
+span#numero-txt {
+    transform: translateY(-5px);
+}
+
+span#numero-txt > span#copy-btn {
+    transform: translateY(5px);
+    padding: 5px;
+    border-radius: 5px;
+
+    user-select: none;         /* Padrão */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+}
+
+span#numero-txt > span#copy-btn:hover {
+    cursor: pointer;
+    background-color: #dddddd;
     transition: .1s;
 }
 
@@ -325,8 +351,7 @@ div.solucoes > div.solucoes-main-header > span#ir-apresentacao {
 }
 
 div.solucoes > div.solucoes-main-header > span#ir-apresentacao:hover {
-    color: blue;
-    text-decoration: underline;
+    color: var(--button-blue);
     cursor: pointer;
 }
 
@@ -338,12 +363,13 @@ div.solucoes > div.solucoes-main-header > span#ir-apresentacao > p#ir-apresentac
 
 div.solucoes > div.solucoes-main-header > span#ir-apresentacao:hover > p#ir-apresentacao-walk {
     transform: translateX(-3px);
+    text-decoration: underline;
 }
 
-.cards-container {
+#solutions-grid, #cards-container {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 10px;
+    gap: 15px;
     width: 100%;
 }
 
@@ -611,7 +637,6 @@ div#changer {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    background-color: rgba(255, 255, 255, 0.5);
     height: 50px;
     padding: 0 12px;
     user-select: none;
@@ -624,6 +649,7 @@ div#changer span#changer-next {
     cursor: pointer;
     user-select: none;
     line-height: 1;
+    transform: translateY(-3px);
 }
 
 .dot {
@@ -639,7 +665,7 @@ div#changer span#changer-next {
     width: 20px;
     height: 10px;
     border-radius: 5px;
-    background-color: var(--button-blue);
+    background-color: var(--changer-blue);
 }
 
 div.img-sl-btn > div#fullscr-solucoes {
@@ -770,8 +796,8 @@ div#contact-metd-sl > div#contact-metd-box-sl > span#whatsapp-btn-sl:hover {
     transition: .1s;
 }
 
-div#contact-metd-sl > div#contact-metd-box-sl > span#contact-btn-sl {
-    background-color: var(--button-blue);
+div#contact-metd-sl > div#contact-metd-box-sl > span#instagram-btn-sl {
+    background-color: var(--button-pink);
     padding: 10px;
     width: 90%;
     border-radius: 20px;
@@ -780,8 +806,230 @@ div#contact-metd-sl > div#contact-metd-box-sl > span#contact-btn-sl {
     user-select: none;
 }
 
-div#contact-metd-sl > div#contact-metd-box-sl > span#contact-btn-sl:hover {
-    background-color: var(--button-blue-hover);
+div#contact-metd-sl > div#contact-metd-box-sl > span#instagram-btn-sl:hover {
+    background-color: var(--button-pink-hover);
+    transition: .1s;
+}
+
+/* Modal da tela cheia */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+}
+
+.modal-content {
+    background-color: #fff1a2;
+    width: 80%;
+    max-width: 900px;
+    height: 70vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.modal-controls {
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-top: 1px solid #ddd;
+}
+
+.modal-controls > div {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+#modal-changer {
+    justify-content: flex-start;
+    gap: 15px;
+}
+
+#modal-changer #modal-back,
+#modal-changer #modal-next {
+    transform: translateY(-2.5px);
+}
+
+#modal-title-center {
+    justify-content: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+#modal-close-container {
+    justify-content: flex-end;
+}
+
+.modal-close {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+}
+
+.modal-close:hover {
+    background-color: #dfdfdf;
+}
+
+/*
+=== PÁGINA 3 - CONHEÇA O TÉCNICO ===
+*/
+
+main#main-cot {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 40px;
+}
+
+div#header-title {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+/* Informações do técnico */
+
+div.info-container {
+    background-color: #dfdfdf;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    padding: 20px;
+    border: 2px solid #f0f0f0;
+    border-radius: 20px;
+}
+
+div.info-container > div#info-img {
+    background-color: var(--img);
+    width: 310px;
+    height: 310px;
+
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+div.info-container > div#info-txt {
+    width: 90%;
+    margin: 0 20px;
+}
+
+div#info-txt > p {
+    text-align: justify;
+
+    display: -webkit-box;
+    line-clamp: 15;
+    -webkit-line-clamp: 15;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+div#contact-metd-cot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background-color: var(--background-white);
+    border: 3px solid #fff;
+    border-radius: 20px;
+    width: 400px;
+    height: 310px;
+    margin-left: 0px;
+    flex-shrink: 0;
+}
+
+div#contact-metd-cot > h1 {
+    margin: auto 0;
+    transform: translateY(-7px);
+}
+
+div#contact-metd-cot > div#contact-metd-box-cot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: flex-end;
+    align-items: center;
+    gap: 15px;
+
+    width: 100%;
+    height: 200px;
+
+    background-color: #fff;
+    border-radius: 20px;
+
+    text-align: center;
+    font-weight: normal;
+}
+
+div#contact-metd-cot > div#contact-metd-box-cot > span#pre-atend-btn-cot {
+    font-weight: 500;
+
+    user-select: none;         /* Padrão */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+}
+
+div#contact-metd-cot > div#contact-metd-box-cot > span#pre-atend-btn-cot:hover {
+    cursor: pointer;
+    color: var(--dark-blue);
+    text-decoration: underline;
+}
+
+div#contact-metd-cot > div#contact-metd-box-cot > span#whatsapp-btn-cot {
+    background-color: var(--whatsapp);
+    padding: 10px;
+    width: 90%;
+    border-radius: 20px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+div#contact-metd-cot > div#contact-metd-box-cot > span#whatsapp-btn-cot:hover {
+    background-color: var(--whatsapp-hover);
+    transition: .1s;
+}
+
+div#contact-metd-cot > div#contact-metd-box-cot > span#instagram-btn-cot {
+    background-color: var(--button-pink);
+    padding: 10px;
+    width: 90%;
+    border-radius: 20px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+div#contact-metd-cot > div#contact-metd-box-cot > span#instagram-btn-cot:hover {
+    background-color: var(--button-pink-hover);
     transition: .1s;
 }
 

@@ -44,6 +44,11 @@ O projeto foi construído utilizando ferramentas modernas de mercado, priorizand
 ### Veja abaixo uma demonstração sobre como o projeto está:
 > Esta gravação é da **versão de desenvolvimento** `v.0.3.0`.
 
+> [!WARNING]
+> ESTA GRAVAÇÃO É DE UMA VERSÃO EXTREMAMENTE DESATUALIZADA, COM FUNCIONALIDADES E SISTEMAS ANTIGOS.
+> 
+> AO FINAL DO DESENVOLVIMENTO, SERÁ PUBLICADO UMA NOVA GRAVAÇÃO DE DEMONSTRAÇÃO.
+
 <div align="center">
   <img src="./src/assets/preview_0_3_0.gif" alt="Demonstração do site" width="100%">
 </div>
