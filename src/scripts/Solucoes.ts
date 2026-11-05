@@ -81,6 +81,7 @@ if (changerContainer) {
 
 const gridContainer = document.getElementById('solutions-grid');
 const gridContainerIndex = document.getElementById('cards-container')
+const solAutoModal = document.getElementById('auto-servico')
 
 if (gridContainer) {
     gridContainer.innerHTML = solutions.map((sol) => `

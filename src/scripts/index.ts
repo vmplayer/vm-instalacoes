@@ -1,6 +1,28 @@
 import { Autoatendimento } from "./Autoatendimento";
 
-let msg: Autoatendimento = new Autoatendimento ("Olá!");
+// Sistema de Atendimento Inteligente
+
+const msg = new Autoatendimento("Olá!");
+
+document.addEventListener('submit', (e) => {
+    const form = e.target as HTMLFormElement;
+
+    if (!form.querySelector('#auto-submit-btn')) return;
+
+    e.preventDefault();
+
+    const autoNome = form.querySelector<HTMLInputElement>('#auto-nome');
+    const autoCidade = form.querySelector<HTMLInputElement>('#auto-cidade');
+    const autoServico = form.querySelector<HTMLSelectElement>('#auto-servico');
+    const autoDetalhes = form.querySelector<HTMLTextAreaElement>('#auto-detalhes');
+
+    if (!autoNome || !autoCidade || !autoServico || !autoDetalhes) return;
+
+    msg.altMsg(`*Nome:* ${autoNome.value}.\n\n*Cidade:* ${autoCidade.value}.\n\n*Solução:* ${autoServico.value}.\n\n${autoDetalhes.value}`);
+    msg.sendMessage();
+});
+
+
 
 // Sistema de copiar o número de celular para a área de transferência do usuário
 
