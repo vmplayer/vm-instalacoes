@@ -4,6 +4,7 @@
     font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -13,7 +14,7 @@
     --button-blue: #3c8ffc;
     --button-blue-hover: #307adb;
     --blue: #1a73e8;
-    --dark-blue: #1263cc;;
+    --dark-blue: #1263cc;
     --changer-blue: #3c8ffc;
     --background-border: #aec8f1;
     --footer-bg: #7ca5db;
@@ -24,6 +25,7 @@
     
     --white-text: #fff;
     --text: #000;
+
 }
 
 body {
@@ -41,6 +43,7 @@ header {
     width: 100%;
     color: var(--white-text);
     display: flex;
+    align-items: center;
 
     cursor: default;
     user-select: none;         /* Padrão */
@@ -49,10 +52,43 @@ header {
     -ms-user-select: none;     /* IE/Edge */
 }
 
-header > div.header-title > h1 > span > img {
+header > div.menu {
+    display: none;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+header > div.menu > span#menu-icon {
+    padding: 5px;
+    border-radius: 7px;
+}
+
+header > div.menu > span#menu-icon:hover {
+    background-color: #0000002f;
+    transition: .1s ease-in-out;
+
+    cursor: pointer;
+    user-select: none;         /* Padrão */
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+}
+
+header > div.header-title {
+    transform: translateY(-2px);
+}
+
+header > div.header-title > h1 > span > svg {
     height: 50px;
     width: 50px;
     
+    vertical-align: middle;
+}
+
+header > div.header-title > h1 > span > img {
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
     vertical-align: middle;
 }
 
@@ -84,6 +120,10 @@ nav {
 
     position: sticky;
     top: 10px;
+}
+
+nav[hidden] {
+    display: none;
 }
 
 nav > div.item {
@@ -1295,4 +1335,146 @@ footer {
     text-align: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+}
+
+/*
+Base (sem query)          Desktops padrão e monitores grandes         ≥ 1200px
+Laptops / Telas menores   Notebooks compactos e tablets em paisagem   ≤ 1199px
+Tablets (retrato)         iPads e tablets na vertical                 ≤ 991px
+Celulares grandes         Smartphones na horizontal                   ≤ 767px
+Celulares padrão          Smartphones na vertical                     ≤ 575px
+*/
+
+@media screen and (max-width: 1199px) {
+    nav {
+        width: 200px;
+    }
+
+    main {
+        gap: 25px;
+    }
+
+    /* ABA DE ENTRAR EM CONTATO DA TELA INICIAL */
+
+    div.contact-str {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    div.contact {
+        background-color: var(--background-blue);
+        width: 100%;
+        height: 350px;
+        border: 2px solid var(--background-border);
+        border-radius: 20px;
+
+        display: flex;
+        flex-direction: row;
+    }
+
+    div.contact > div#img {
+        background-color: var(--img);
+        width: 500px;
+        height: 350px;
+
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    div.contact > div.contact-body {
+        flex-direction: row;
+    }
+
+    div.contact-body > div#contact-metd {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-end;
+        padding: 0;
+        box-sizing: border-box;
+
+        background-color: green;
+        border: none;
+        border-radius: 0;
+        width: 700px;
+        margin-left: 0px;
+        flex-shrink: 0;
+    }
+
+    div#contact-metd > h1 {
+        display: none;
+    }
+
+    div#contact-metd > div#contact-metd-box {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 10px;
+
+        width: 100%;
+        height: 200px;
+
+        background-color: #fff;
+        border-radius: 20px;
+
+        text-align: center;
+        font-weight: normal;
+    }
+
+    div#contact-metd > div#contact-metd-box > span#pre-atend-btn {
+        font-weight: 500;
+
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
+    div#contact-metd > div#contact-metd-box > span#pre-atend-btn:hover {
+        cursor: pointer;
+        color: var(--dark-blue);
+        text-decoration: underline;
+    }
+
+    div#contact-metd > div#contact-metd-box > span#whatsapp-btn {
+        background-color: var(--whatsapp);
+        padding: 10px;
+        width: 90%;
+        border-radius: 20px;
+
+        cursor: pointer;
+        user-select: none;
+    }
+
+    div#contact-metd > div#contact-metd-box > span#whatsapp-btn:hover {
+        background-color: var(--whatsapp-hover);
+        transition: .1s;
+    }
+
+    div#contact-metd > div#contact-metd-box > span#instagram-btn {
+        display: none;
+    }
+
+    span#numero-txt {
+        display: none;
+    }
+
+    span#numero-txt > span#copy-btn {
+        transform: translateY(5px);
+        padding: 5px;
+        border-radius: 5px;
+
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
+    span#numero-txt > span#copy-btn:hover {
+        cursor: pointer;
+        background-color: #dddddd;
+        transition: .1s;
+    }
 }

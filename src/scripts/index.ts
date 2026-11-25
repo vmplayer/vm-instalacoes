@@ -22,8 +22,6 @@ document.addEventListener('submit', (e) => {
     msg.sendMessage();
 });
 
-
-
 // Sistema de copiar o número de celular para a área de transferência do usuário
 
 async function copiarTexto(): Promise<void> {
@@ -54,4 +52,33 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btn) {
         btn.addEventListener('click', copiarTexto);
     }
+});
+
+// Sistema de menu hambúrguer
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.getElementById('menu-icon') as HTMLSpanElement | null;
+    const navBar = document.querySelector('nav') as HTMLElement | null;
+
+    if (!menuBtn || !navBar) return;
+
+    menuBtn.setAttribute('role', 'button');
+    menuBtn.setAttribute('tabindex', '0');
+    menuBtn.setAttribute('aria-expanded', 'true');
+    menuBtn.textContent = 'close';
+
+    const toggleMenu = () => {
+        const isHidden = navBar.toggleAttribute('hidden');
+
+        menuBtn.textContent = isHidden ? 'menu' : 'close';
+        menuBtn.setAttribute('aria-expanded', String(!isHidden));
+    };
+
+    menuBtn.addEventListener('click', toggleMenu);
+    menuBtn.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleMenu();
+        }
+    });
 });
