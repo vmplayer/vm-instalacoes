@@ -83,67 +83,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Sistema para deixar o Clamp dinâmico.
+// Marquee da desgraça lá que não pega
 
-function ajustarClampCards(): void {
-    const cards = document.querySelectorAll<HTMLElement>('div.card');
+function atualizarMarqueeTitulos(): void {
+    const headers = document.querySelectorAll<HTMLElement>('div.card-header');
 
-    cards.forEach((card) => {
-        const cardBody = card.querySelector<HTMLElement>('div.card-body');
-        const paragrafo = cardBody?.querySelector<HTMLElement>(':scope > p');
-        const titulo = cardBody?.querySelector<HTMLElement>('h1, h2, h3, h4');
+    headers.forEach((header) => {
+        const h3 = header.querySelector<HTMLElement>('h3');
+        if (!h3) return;
 
-        if (!cardBody || !paragrafo) return;
+        h3.style.setProperty('--scroll-dist', '0px');
+        header.setAttribute('data-overflow', 'false');
 
-        paragrafo.style.maxHeight = '';
+        const diferenca = (h3.scrollWidth + 15) - header.clientWidth;
 
-        let alturaOutrosElementos = 0;
-        Array.from(cardBody.children).forEach((filho) => {
-            if (filho !== paragrafo && filho instanceof HTMLElement) {
-                filho.style.position = 'relative';
-                filho.style.zIndex = '2';
-                const estilo = getComputedStyle(filho);
-                const margemVertical =
-                    (parseFloat(estilo.marginTop) || 0) + (parseFloat(estilo.marginBottom) || 0);
-                alturaOutrosElementos += filho.offsetHeight + margemVertical;
-            }
-        });
-
-        const estiloBody = getComputedStyle(cardBody);
-        const gapBody = parseFloat(estiloBody.rowGap) || parseFloat(estiloBody.gap) || 0;
-        const qtdFilhos = cardBody.children.length;
-        const espacoGaps = gapBody * Math.max(0, qtdFilhos - 1);
-
-        const estiloP = getComputedStyle(paragrafo);
-        const fontSizeP = parseFloat(estiloP.fontSize) || 14;
-        const lineHeightP =
-            estiloP.lineHeight === 'normal'
-                ? fontSizeP * 1.2
-                : parseFloat(estiloP.lineHeight) || fontSizeP * 1.2;
-
-        const alturaDisponivel = cardBody.clientHeight - alturaOutrosElementos - espacoGaps - 8;
-
-        if (alturaDisponivel > 0) {
-            const linhasQueCabem = Math.max(1, Math.floor(alturaDisponivel / lineHeightP));
-            paragrafo.style.maxHeight = `${linhasQueCabem * lineHeightP}px`;
-        }
-
-        if (titulo) {
-            const estiloTitulo = getComputedStyle(titulo);
-            const fontSize = parseFloat(estiloTitulo.fontSize) || 18;
-            const lineHeight =
-                estiloTitulo.lineHeight === 'normal'
-                    ? fontSize * 1.2
-                    : parseFloat(estiloTitulo.lineHeight) || fontSize * 1.2;
-
-            const quebrou = titulo.offsetHeight > lineHeight * 1.3;
-            const clamp = quebrou ? 3 : 6;
-
-            paragrafo.style.webkitLineClamp = String(clamp);
-            paragrafo.style.setProperty('line-clamp', String(clamp));
+        if (diferenca > 2) {
+            header.setAttribute('data-overflow', 'true');
+            h3.style.setProperty('--scroll-dist', `-${Math.ceil(diferenca)}px`);
         }
     });
 }
 
-window.addEventListener('resize', ajustarClampCards);
-window.addEventListener('load', ajustarClampCards);
+
+
+document.addEventListener('DOMContentLoaded', atualizarMarqueeTitulos);
+window.addEventListener('resize', atualizarMarqueeTitulos);
