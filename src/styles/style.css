@@ -218,7 +218,7 @@ div.contact {
 div.contact > div#img {
     background-color: var(--img);
     width: 500px;
-    height: 350px;
+    height: 346px;
 
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
@@ -248,7 +248,8 @@ div.contact-body > div#contact-info > h1 {
 }
 
 div.contact-body > div#contact-info > p {
-    width: 700px;
+    width: 100%;
+    max-width: 700px;
     margin-right: 0px;
     text-align: justify;
 
@@ -433,17 +434,30 @@ div.card-body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    flex-grow: 1;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
 }
 
 div.card-body > p {
+    margin-top: 2px;
     text-align: justify;
     display: -webkit-box;
+    -webkit-box-orient: vertical;
     line-clamp: 6;
     -webkit-line-clamp: 6;
-    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+div.card-btn {
+    background-color: var(--button-blue);
+    margin: 0 auto 15px auto;
+    width: 90%;
+    text-align: center;
+    padding: 10px 5px;
+    border-radius: 20px;
+    flex-shrink: 0;
 }
 
 div.card-header > div.solucoes-card-img {
@@ -457,15 +471,6 @@ div.card-header > div.solucoes-card-img {
 
 h3#main-solucoes-img-txt {
     padding: 15px 0px 0px 15px;
-}
-
-div.card-btn {
-    background-color: var(--button-blue);
-    margin: 0 auto 15px auto;
-    width: 90%;
-    text-align: center;
-    padding: 10px 5px;
-    border-radius: 20px;
 }
 
 div.card-btn:hover {
@@ -1338,14 +1343,14 @@ footer {
 }
 
 /*
-Base (sem query)          Desktops padrão e monitores grandes         ≥ 1200px
-Laptops / Telas menores   Notebooks compactos e tablets em paisagem   ≤ 1199px
+Base (sem query)          Desktops padrão e monitores grandes         ≥ 1400px
+Laptops / Telas menores   Notebooks compactos e tablets em paisagem   ≤ 1399px
 Tablets (retrato)         iPads e tablets na vertical                 ≤ 991px
 Celulares grandes         Smartphones na horizontal                   ≤ 767px
 Celulares padrão          Smartphones na vertical                     ≤ 575px
 */
 
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1399px) {
     nav {
         width: 200px;
     }
@@ -1364,43 +1369,54 @@ Celulares padrão          Smartphones na vertical                     ≤ 575px
     }
 
     div.contact {
-        background-color: var(--background-blue);
-        width: 100%;
-        height: 350px;
-        border: 2px solid var(--background-border);
-        border-radius: 20px;
-
-        display: flex;
-        flex-direction: row;
+        height: auto;
+        min-height: 250px;
+        overflow: hidden;
     }
 
     div.contact > div#img {
-        background-color: var(--img);
-        width: 500px;
-        height: 350px;
-
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
+        width: 300px;
+        height: auto;
+        min-height: 250px;
+        flex-shrink: 0;
     }
 
     div.contact > div.contact-body {
-        flex-direction: row;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: auto;
+        width: auto;
+        flex: 1;
+        min-width: 0;
+        gap: 8px;
+    }
+
+    div.contact-body > div#contact-info > p {
+        width: 100%;
+        max-width: none;
+        font-size: small;
+        font-weight: lighter;
+        line-clamp: 9;
+        -webkit-line-clamp: 9;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     div.contact-body > div#contact-metd {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
-        justify-content: flex-end;
-        padding: 0;
+        align-items: center;
+        justify-content: flex-start;
         box-sizing: border-box;
-
-        background-color: green;
+        background-color: transparent;
         border: none;
         border-radius: 0;
-        width: 700px;
-        margin-left: 0px;
-        flex-shrink: 0;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        margin: 0;
     }
 
     div#contact-metd > h1 {
@@ -1410,40 +1426,38 @@ Celulares padrão          Smartphones na vertical                     ≤ 575px
     div#contact-metd > div#contact-metd-box {
         display: flex;
         flex-direction: row;
+        align-items: center;
         justify-content: flex-start;
-        gap: 10px;
-
+        gap: 5px;
         width: 100%;
-        height: 200px;
-
-        background-color: #fff;
-        border-radius: 20px;
-
+        height: auto;
+        background-color: transparent;
+        border-radius: 0;
         text-align: center;
         font-weight: normal;
     }
 
     div#contact-metd > div#contact-metd-box > span#pre-atend-btn {
-        font-weight: 500;
-
+        background-color: var(--button-blue);
+        padding: 10px;
+        width: 50%;
+        border-radius: 20px;
+        cursor: pointer;
         user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
     }
 
     div#contact-metd > div#contact-metd-box > span#pre-atend-btn:hover {
-        cursor: pointer;
-        color: var(--dark-blue);
-        text-decoration: underline;
+        background-color: var(--button-blue-hover);
+        transition: .1s;
+        text-decoration: none;
+        color: black;
     }
 
     div#contact-metd > div#contact-metd-box > span#whatsapp-btn {
         background-color: var(--whatsapp);
         padding: 10px;
-        width: 90%;
+        width: 50%;
         border-radius: 20px;
-
         cursor: pointer;
         user-select: none;
     }
@@ -1461,20 +1475,116 @@ Celulares padrão          Smartphones na vertical                     ≤ 575px
         display: none;
     }
 
-    span#numero-txt > span#copy-btn {
+    /* ABA DE SOLUÇÕES DA TELA INICIAL */
+
+    /* div.solucoes {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    div.solucoes > div.solucoes-main-header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    div.solucoes > div.solucoes-main-header > span#ir-apresentacao {
+        display: flex;
+        flex-direction: row;
+        justify-self: flex-end;
+        gap: 5px;
         transform: translateY(5px);
-        padding: 5px;
-        border-radius: 5px;
-
-        user-select: none;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
     }
 
-    span#numero-txt > span#copy-btn:hover {
+    div.solucoes > div.solucoes-main-header > span#ir-apresentacao:hover {
+        color: var(--button-blue);
         cursor: pointer;
-        background-color: #dddddd;
-        transition: .1s;
     }
+
+    div.solucoes > div.solucoes-main-header > span#ir-apresentacao > p#ir-apresentacao-walk {
+        display: inline-block;
+        transform: translateX(0);
+        transition: transform 0.3s ease;
+    }
+
+    div.solucoes > div.solucoes-main-header > span#ir-apresentacao:hover > p#ir-apresentacao-walk {
+        transform: translateX(-3px);
+        text-decoration: underline;
+    }
+
+    #solutions-grid, #cards-container {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 15px;
+        width: 100%;
+    }
+
+    div.card {
+        width: 100%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 5px;
+        border: 1px solid black;
+        border-radius: 10px;
+        box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.247);
+        overflow: hidden;
+    }
+
+    div.card-body {
+        padding: 0 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    div.card-body > p {
+        text-align: justify;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        line-clamp: 5;
+        -webkit-line-clamp: 5;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    div.card-btn {
+        background-color: var(--button-blue);
+        margin: 0 auto 15px auto;
+        width: 90%;
+        text-align: center;
+        padding: 10px 5px;
+        border-radius: 20px;
+        flex-shrink: 0;
+    }
+
+    div.card-header > div.solucoes-card-img {
+        background-color: var(--img);
+        width: 100%;
+        height: 160px;
+
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    h3#main-solucoes-img-txt {
+        padding: 15px 0px 0px 15px;
+    }
+
+    div.card-btn:hover {
+        background-color: var(--button-blue-hover);
+
+        cursor: pointer;
+        user-select: none;         /* Padrão */
+        -webkit-user-select: none; /* Safari */
+        -moz-user-select: none;    /* Firefox */
+        -ms-user-select: none;     /* IE/Edge */
+    } */
 }
