@@ -29,7 +29,7 @@ export class Modal {
 
                         <div class="form-group">
                             <label for="auto-cidade">Cidade: </label>
-                            <input type="tel" id="auto-cidade" placeholder="Ex.: São Leopoldo" autocomplete="adress-level2" required>
+                            <input type="text" id="auto-cidade" placeholder="Ex.: São Leopoldo" autocomplete="adress-level2" required>
                         </div>
 
                         <div class="form-group">
