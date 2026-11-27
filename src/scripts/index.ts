@@ -62,15 +62,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!menuBtn || !navBar) return;
 
+    const desktopQuery = window.matchMedia('(min-width: 992px)');
+
+    const closeMobileMenu = () => {
+        navBar.setAttribute('hidden', '');
+        menuBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    const syncMenuState = (isDesktop: boolean, forceShowOnDesktop = false) => {
+        if (isDesktop) {
+            if (forceShowOnDesktop) {
+                navBar.removeAttribute('hidden');
+            }
+            const isHidden = navBar.hasAttribute('hidden');
+            menuBtn.setAttribute('aria-expanded', String(!isHidden));
+        } else {
+            closeMobileMenu();
+        }
+    };
+
+    if (desktopQuery.matches) {
+        navBar.removeAttribute('hidden');
+        menuBtn.setAttribute('aria-expanded', 'true');
+    } else {
+        closeMobileMenu();
+    }
+
+    desktopQuery.addEventListener('change', (event) => {
+        if (event.matches) {
+            syncMenuState(true, true);
+        } else {
+            syncMenuState(false);
+        }
+    });
+
     menuBtn.setAttribute('role', 'button');
     menuBtn.setAttribute('tabindex', '0');
-    menuBtn.setAttribute('aria-expanded', 'true');
-    menuBtn.textContent = 'close';
 
     const toggleMenu = () => {
         const isHidden = navBar.toggleAttribute('hidden');
-
-        menuBtn.textContent = isHidden ? 'menu' : 'close';
         menuBtn.setAttribute('aria-expanded', String(!isHidden));
     };
 
@@ -79,6 +109,19 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.key === 'Enter' || event.key === ' ') {
             event.preventDefault();
             toggleMenu();
+        }
+    });
+
+    navBar.addEventListener('click', (event) => {
+        const target = event.target as HTMLElement;
+        if (window.innerWidth <= 991 && !target.closest('.item')) {
+            closeMobileMenu();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && window.innerWidth <= 991 && !navBar.hasAttribute('hidden')) {
+            closeMobileMenu();
         }
     });
 });
@@ -103,8 +146,6 @@ function atualizarMarqueeTitulos(): void {
         }
     });
 }
-
-
 
 document.addEventListener('DOMContentLoaded', atualizarMarqueeTitulos);
 window.addEventListener('resize', atualizarMarqueeTitulos);

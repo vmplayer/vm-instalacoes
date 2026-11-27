@@ -82,6 +82,7 @@ if (changerContainer) {
 const gridContainer = document.getElementById('solutions-grid');
 const gridContainerIndex = document.getElementById('cards-container')
 const solAutoModal = document.getElementById('auto-servico')
+const cardsContainer = gridContainerIndex;
 
 if (gridContainer) {
     gridContainer.innerHTML = solutions.map((sol) => `
@@ -111,35 +112,61 @@ if (gridContainer) {
             }
         });
     });
-} else if (gridContainerIndex) {
-    gridContainerIndex.innerHTML = solutions.slice(0, 4).map((sol) => `
-        <div class="card" data-index="${sol.id}">
-            <div class="card-header">
-                <div class="solucoes-card-img" style="background-image: url('${sol.img[0] || ''}'); background-size: cover;"></div>
-                <h3 id="main-solucoes-img-txt">${sol.titulo}</h3>
-            </div>
-            <div class="card-body">
-                <p><strong><span class="material-symbols-outlined escudo">shield</span>
-                    <span>${sol.garantia ? "Com Garantia" : "Sem Garantia"}</span></strong></p>
-                <p>${sol.descricao}</p>
-            </div>
-            <div class="card-btn" data-index="${sol.id}">Conhecer</div>
-        </div>
-    `).join('');
+} else if (cardsContainer) {
+    const container = cardsContainer;
+    let sliceQtdAtual = 0;
 
-    document.querySelectorAll('.card-btn').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const index = (e.currentTarget as HTMLElement).getAttribute('data-index');
-            
-            const isInsidePages = window.location.pathname.includes('/pages/');
-            if (isInsidePages) {
-                window.location.href = `solucoes.html?id=${index}`;
-            } else {
-                window.location.href = `src/pages/solucoes.html?id=${index}`;
-            }
-        });
+    function vrfyWdth(): void {
+        let novaQtd = 4;
+
+        if (window.innerWidth <= 991) {
+            novaQtd = 2;
+        } else if (window.innerWidth <= 1399) {
+            novaQtd = 3;
+        }
+
+        // Só re-renderiza se a quantidade de cards realmente mudar
+        if (novaQtd === sliceQtdAtual) return;
+
+        sliceQtdAtual = novaQtd;
+
+        container.innerHTML = solutions.slice(0, sliceQtdAtual).map((sol) => `
+            <div class="card" data-index="${sol.id}">
+                <div class="card-header">
+                    <div class="solucoes-card-img" style="background-image: url('${sol.img[0] || ''}'); background-size: cover;"></div>
+                    <h3 id="main-solucoes-img-txt">${sol.titulo}</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong><span class="material-symbols-outlined escudo">shield</span>
+                        <span>${sol.garantia ? "Com Garantia" : "Sem Garantia"}</span></strong></p>
+                    <p>${sol.descricao}</p>
+                </div>
+                <div class="card-btn" data-index="${sol.id}">Conhecer</div>
+            </div>
+        `).join('');
+    }
+
+    vrfyWdth();
+
+    window.addEventListener('resize', vrfyWdth);
+
+    container.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        const btn = target.closest('.card-btn');
+        
+        if (!btn) return;
+
+        const index = btn.getAttribute('data-index');
+        const isInsidePages = window.location.pathname.includes('/pages/');
+        
+        if (isInsidePages) {
+            window.location.href = `solucoes.html?id=${index}`;
+        } else {
+            window.location.href = `src/pages/solucoes.html?id=${index}`;
+        }
     });
 }
+
 
 const fullScreenBtn = document.getElementById('fullscr-solucoes');
 

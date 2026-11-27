@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="src/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="public/favicon.ico" type="image/x-icon">
     <title>VM Instalações</title>
     <link rel="stylesheet" href="src/styles/style.css">
     <link rel="stylesheet" href="src/styles/mediaquery.css">
@@ -12,79 +12,18 @@
 <body>
     <header>
         <div class="menu">
-            <span class="material-symbols-outlined" id="menu-icon">close</span>
+            <span id="menu-icon" class="hamburger-anim" role="button" tabindex="0" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </span>
         </div>
         <div class="header-title" onclick="window.location.href = '/'">
-            <h1><span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
-                    <defs>
-                        <linearGradient id="grad-blue" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#24718d" />
-                        <stop offset="50%" stop-color="#14667f" />
-                        <stop offset="100%" stop-color="#0c627b" />
-                        </linearGradient>
-
-                        <linearGradient id="grad-teal" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#509f8f" />
-                        <stop offset="50%" stop-color="#449587" />
-                        <stop offset="100%" stop-color="#3b8c81" />
-                        </linearGradient>
-                    </defs>
-
-                    <!--<rect width="1024" height="1024" fill="#000000" />-->
-
-                    <!-- Bloco 1: Moldura arredondada esquerda -->
-                    <path d="M 380,248 L 256,248 A 88,88 0 0 0 168,336 L 168,592 A 88,88 0 0 0 256,680 L 380,680"
-                            fill="none"
-                            stroke="url(#grad-blue)"
-                            stroke-width="22"
-                            stroke-linecap="butt" />
-
-                    <!-- Floco de neve fiel à imagem original -->
-                    <g id="snowflake" fill="none" stroke="url(#grad-blue)" stroke-width="19" stroke-linecap="round" stroke-linejoin="round">
-                        <!-- Pilar principal vertical (de cima para baixo) -->
-                        <line x1="286.5" y1="322.5" x2="286.51" y2="546.5" />
-                        <!-- Eixos diagonais de 60° e 120° -->
-                        <line x1="189.51" y1="378.5" x2="383.49" y2="490.5" />
-                        <line x1="189.51" y1="490.5" x2="383.49" y2="378.5" />
-
-                        <!-- Ramificações (braço 0° topo) -->
-                        <polyline points="254.0,343.5 286.5,366.5 319.0,343.5" />
-                        <!-- Ramificações (braço 60°) -->
-                        <polyline points="349.06,360.85 345.39,400.5 381.56,417.15" />
-                        <!-- Ramificações (braço 120°) -->
-                        <polyline points="381.56,451.85 345.39,468.5 349.06,508.15" />
-                        <!-- Ramificações (braço 180° base) -->
-                        <polyline points="319.0,525.5 286.5,502.5 254.0,525.5" />
-                        <!-- Ramificações (braço 240°) -->
-                        <polyline points="223.94,508.15 227.61,468.5 191.44,451.85" />
-                        <!-- Ramificações (braço 300°) -->
-                        <polyline points="191.44,417.15 227.61,400.5 223.94,360.85" />
-                    </g>
-
-                    <!-- Bloco 2: Moldura retangular central -->
-                    <rect x="415" y="247" width="200" height="434" rx="2" ry="2"
-                            fill="none"
-                            stroke="url(#grad-teal)"
-                            stroke-width="22"
-                            stroke-linejoin="miter" />
-
-                    <!-- Raio -->
-                    <polygon points="557,296 442,471 504,483 465,623 584,443 518,433"
-                            fill="url(#grad-teal)"
-                            stroke="url(#grad-teal)"
-                            stroke-width="6"
-                            stroke-linejoin="round" />
-
-                    <!-- Bloco 3: Telhado e tubulação à direita -->
-                    <g fill="none" stroke="url(#grad-blue)" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M 656,364 L 722,292 L 882,452 L 668,452" stroke-width="28" />
-                        <path d="M 656,656 L 752,656 C 776,656 782,642 782,616 L 782,554 C 782,538 794,530 818,522 L 848,510 C 864,502 868,490 868,468 L 868,452" stroke-width="26" />
-                        <line x1="782" y1="452" x2="782" y2="545" stroke-width="26" />
-                        <path d="M 806,574 L 806,622 C 806,646 792,656 764,656" stroke-width="22" />
-                    </g>
-                    </svg>
-                </span>VM Instalações</h1>
+            <h1>
+                <span>
+                    <img src="./src/assets/vm-instalacoes-logo-brilho.png" alt="VM Instalações - logo">
+                </span>
+            </h1>
         </div>
     </header>
     <div class="main-container">
@@ -149,9 +88,12 @@
                 <h2>Sobre nós</h2>
                 <div class="end-h-container">
                     <div class="onde-atuamos">
-                        <div id="onde-atuamos-img"></div>
+                        <div id="onde-atuamos-header">
+                            <div id="onde-atuamos-img"></div>
+                            <h1 id="oa-ta">Onde nós atuamos?</h1>
+                        </div>
                         <div class="onde-atuamos-content">
-                            <h1>Onde nós atuamos?</h1>
+                            <h1 id="oa-tb">Onde nós atuamos?</h1>
                             <p>Atuamos principalmente pela <strong>região metropolitana</strong> do Rio Grande do Sul.</p>
                         </div>
                     </div>

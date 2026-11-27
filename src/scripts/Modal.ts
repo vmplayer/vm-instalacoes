@@ -48,7 +48,6 @@ export class Modal {
                             Iniciar Atendimento
                         </button>
                         <p style="text-align: center;">Por favor, envie as imagens na conversa quando entrar em contato.</p>
-                        <p>Quando pressionar o botão de "Iniciar Atendimento", o WhatsApp será aberto com uma mensagem escrita com todos os dados preenchidos acima.</p>
                     </form>
 
                     <div class="modal-auto-preview">
@@ -69,6 +68,11 @@ export class Modal {
                                 <br>
                                 <h2>3. Pronto, Fale Conosco</h2>
                                 <p>O sistema formata o seu pedido automaticamente e te conecta direto com o nosso técnico pelo WhatsApp para agilizar o orçamento.</p>
+                                <br><br>
+                                <div id="modal-advice">
+                                    <strong><span class="material-symbols-outlined" id="info-icon">info</span></strong><br>
+                                    <p><i>Quando pressionar o botão de <strong>"Iniciar Atendimento"</strong>, o <strong>WhatsApp será aberto com uma mensagem pronta</strong>, utilizando todos os dados preenchidos acima.<i></p>
+                                </div>
                             </div>
                         </div>
                     </div>
